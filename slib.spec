@@ -10,7 +10,7 @@ Requires:	guile
 Prereq:		/usr/bin/guile
 BuildRequires:	unzip
 BuildArch:	noarch
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 SLIB is a portable scheme library meant to provide compatibility and 
@@ -36,7 +36,6 @@ cp -p slib.info* $RPM_BUILD_ROOT/%{_infodir}
 
 gzip -9nf $RPM_BUILD_ROOT/%{_infodir}/*.info* \
 	ANNOUNCE ChangeLog FAQ README *.init *.pat *.sh
-
 
 echo 'SCHEME_LIBRARY_PATH=%{_datadir}/guile/slib/
 export SCHEME_LIBRARY_PATH' \
