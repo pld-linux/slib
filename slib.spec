@@ -30,25 +30,18 @@ cd %{name}
 rm -rf $RPM_BUILD_ROOT
 
 cd %{name}
-install -d $RPM_BUILD_ROOT/{%{_infodir},%{_datadir}/guile/slib,etc/profile.d}
+install -d $RPM_BUILD_ROOT/{%{_infodir},%{_datadir}/guile/slib}
 cp -p *.scm $RPM_BUILD_ROOT/%{_datadir}/guile/slib
 cp -p slib.info* $RPM_BUILD_ROOT/%{_infodir}
 
 gzip -9nf $RPM_BUILD_ROOT/%{_infodir}/*.info* \
 	ANNOUNCE ChangeLog FAQ README *.init *.pat *.sh
 
-echo 'SCHEME_LIBRARY_PATH=%{_datadir}/guile/slib/
-export SCHEME_LIBRARY_PATH' \
-> $RPM_BUILD_ROOT/etc/profile.d/slib.sh
-echo 'setenv SCHEME_LIBRARY_PATH %{_datadir}/guile/slib/' \
-> $RPM_BUILD_ROOT/etc/profile.d/slib.csh
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
-SCHEME_LIBRARY_PATH=%{_datadir}/guile/slib/
 /usr/bin/guile -c "(use-modules (ice-9 slib)) (require 'new-catalog ) "
 
 %preun
@@ -63,7 +56,5 @@ fi
 %defattr(644,root,root,755)
 %doc %{name}/ANNOUNCE.gz %{name}/ChangeLog.gz %{name}/FAQ.gz %{name}/README.gz
 %doc %{name}/*.init.gz %{name}/*.pat.gz %{name}/*.sh.gz 
-%attr(755,root,root) /etc/profile.d/slib.sh
-%attr(755,root,root) /etc/profile.d/slib.csh
 %{_infodir}/slib.info*
 %{_datadir}/guile/slib
