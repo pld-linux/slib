@@ -1,12 +1,12 @@
 Summary:	Scheme library
 Summary(pl):	Biblioteka Scheme
 Name:		slib
-Version:	2d6
+Version:	3a1
 Release:	1
 License:	GPL
 Group:		Development/Languages/Scheme
 Source0:	ftp://ftp-swiss.ai.mit.edu/pub/scm/%{name}%{version}.tar.gz
-# Source0-md5:	25afebd0735c523b6d43be55d4a521c4
+# Source0-md5:	dc1aa0ffb9e2414223ceefc315f6baf9
 Patch0:		%{name}-info.patch
 URL:		http://www-swiss.ai.mit.edu/~jaffer/SLIB.html
 Requires(post):	/usr/bin/guile
