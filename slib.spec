@@ -5,9 +5,9 @@ Release:	0
 License:	GPL
 Group:		Development/Languages/scheme
 URL:		http://www-swiss.ai.mit.edu/~jaffer/SLIB.html
-Source:		ftp://ftp-swiss.ai.mit.edu/pub/scm/%{name}%{version}.tar.gz
-Patch:		slib2c3-texi.patch
+Source:		ftp://ftp-swiss.ai.mit.edu/pub/scm/%{name}%{version}.zip
 Requires:	guile
+BuildRequires:	unzip
 BuildArchitectures:	noarch
 BuildRoot:	/tmp/%{name}-%{version}-root
 
@@ -18,13 +18,16 @@ Revised^5 Report on the Algorithmic Language Scheme and the IEEE P1178
 specification.    
 
 %prep
-%setup -q -n %{name}
-%patch -p1
+#%setup -q -n %{name}
+rm -rf %{name}
+unzip -qq %{SOURCE0}
+cd %{name}
 
 %build
-#make slib.info
+cd %{name}
 
 %install
+cd %{name}
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/{%{_infodir},%{_datadir}/guile/slib,etc/profile.d}
 cp -p *.scm $RPM_BUILD_ROOT/%{_datadir}/guile/slib
@@ -51,8 +54,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ANNOUNCE.gz ChangeLog.gz FAQ.gz README.gz
-%doc  *.init.gz *.pat.gz *.sh.gz 
+%doc %{name}/ANNOUNCE.gz %{name}/ChangeLog.gz %{name}/FAQ.gz %{name}/README.gz
+%doc %{name}/*.init.gz %{name}/*.pat.gz %{name}/*.sh.gz 
 %attr(755, root, root) /etc/profile.d/slib.sh
 %attr(755, root, root) /etc/profile.d/slib.csh
 %{_infodir}/slib.info*.gz
