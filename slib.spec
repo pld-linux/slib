@@ -5,8 +5,6 @@ Version:	2c9
 Release:	4
 License:	GPL
 Group:		Development/Languages/Scheme
-Group(de):	Entwicklung/Sprachen/Scheme
-Group(pl):	Programowanie/Jêzyki/Scheme
 Source0:	ftp://ftp-swiss.ai.mit.edu/pub/scm/%{name}%{version}.zip
 Patch0:		%{name}-info.patch
 URL:		http://www-swiss.ai.mit.edu/~jaffer/SLIB.html
