@@ -1,7 +1,8 @@
-Summary:	scheme library
+Summary:	Scheme library
+Summary(pl):	Biblioteka Scheme
 Name:		slib
 Version:	2c9
-Release:	3
+Release:	4
 License:	GPL
 Group:		Development/Languages/Scheme
 Group(de):	Entwicklung/Sprachen/Scheme
@@ -21,21 +22,21 @@ utility functions for all standard scheme implementations. Slib
 conforms to Revised^5 Report on the Algorithmic Language Scheme and
 the IEEE P1178 specification.
 
-%prep
-rm -rf BUILD/%{name}
-unzip -qq %{SOURCE0} -d BUILD
-cd BUILD/%{name}
-#%patch -p1
+%description -l pl
+SLIB jest przeno¶n± bibliotek± scheme maj±c± zapewniæ kompatybilno¶æ
+i funkcje u¿ytkowe dla wszystkich implementacji scheme. SLIB jest
+zgodne ze specyfikacj± Revised^5 Report on the Algorithmic Language
+Scheme oraz IEEE P1178.
 
-%build
-cd %{name}
+%prep
+%setup -q -n %{name}
+%patch -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
-cd %{name}
 install -d $RPM_BUILD_ROOT/{%{_infodir},%{_datadir}/guile/slib}
-cp -p *.scm $RPM_BUILD_ROOT/%{_datadir}/guile/slib
+
+install *.scm $RPM_BUILD_ROOT/%{_datadir}/guile/slib
 
 install slib.info* $RPM_BUILD_ROOT/%{_infodir}
 
@@ -59,7 +60,6 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc %{name}/ANNOUNCE.gz %{name}/ChangeLog.gz %{name}/FAQ.gz %{name}/README.gz
-%doc %{name}/*.init.gz %{name}/*.pat.gz %{name}/*.sh.gz 
+%doc *.gz
 %{_infodir}/slib.info*
 %{_datadir}/guile/slib
