@@ -1,7 +1,7 @@
 Summary:	scheme library
 Name:		slib
 Version:	2c9
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Languages/Scheme
 Group(de):	Entwicklung/Sprachen/Scheme
@@ -22,9 +22,9 @@ conforms to Revised^5 Report on the Algorithmic Language Scheme and
 the IEEE P1178 specification.
 
 %prep
-rm -rf %{name}
-unzip -qq %{SOURCE0}
-cd %{name}
+rm -rf BUILD/%{name}
+unzip -qq %{SOURCE0} -d BUILD
+cd BUILD/%{name}
 #%patch -p1
 
 %build
