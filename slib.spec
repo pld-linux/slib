@@ -45,7 +45,7 @@ gzip -9nf ANNOUNCE ChangeLog FAQ README *.init *.pat *.sh
 rm -rf $RPM_BUILD_ROOT
 
 %post
-%fix_info_dir
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 /usr/bin/guile -c "(use-modules (ice-9 slib)) (require 'new-catalog ) "
 
 %preun
@@ -54,7 +54,7 @@ if [ "$1" = "0" ]; then
 fi
 
 %postun
-%fix_info_dir
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %files
 %defattr(644,root,root,755)
