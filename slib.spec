@@ -1,11 +1,14 @@
-Summary: 	scheme library
+Summary:	scheme library
 Name:		slib
-Version:	2c8
+Version:	2c9
 Release:	1
 License:	GPL
-Group:		Development/Languages/scheme
+Group:		Development/Languages/Scheme
+Group(de):	Entwicklung/Sprachen/Scheme
+Group(pl):	Programowanie/Jêzyki/Scheme
+Source0:	ftp://ftp-swiss.ai.mit.edu/pub/scm/%{name}%{version}.zip
+Patch0:		%{name}-info.patch
 URL:		http://www-swiss.ai.mit.edu/~jaffer/SLIB.html
-Source:		ftp://ftp-swiss.ai.mit.edu/pub/scm/%{name}%{version}.zip
 Requires:	guile
 Prereq:		/usr/bin/guile
 BuildRequires:	unzip
@@ -13,15 +16,16 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-SLIB is a portable scheme library meant to provide compatibility and 
-utility functions for all standard scheme implementations. Slib conforms to 
-Revised^5 Report on the Algorithmic Language Scheme and the IEEE P1178 
-specification.    
+SLIB is a portable scheme library meant to provide compatibility and
+utility functions for all standard scheme implementations. Slib
+conforms to Revised^5 Report on the Algorithmic Language Scheme and
+the IEEE P1178 specification.
 
 %prep
 rm -rf %{name}
 unzip -qq %{SOURCE0}
 cd %{name}
+#%patch -p1
 
 %build
 cd %{name}
@@ -32,10 +36,10 @@ rm -rf $RPM_BUILD_ROOT
 cd %{name}
 install -d $RPM_BUILD_ROOT/{%{_infodir},%{_datadir}/guile/slib}
 cp -p *.scm $RPM_BUILD_ROOT/%{_datadir}/guile/slib
-cp -p slib.info* $RPM_BUILD_ROOT/%{_infodir}
 
-gzip -9nf $RPM_BUILD_ROOT/%{_infodir}/*.info* \
-	ANNOUNCE ChangeLog FAQ README *.init *.pat *.sh
+install slib.info* $RPM_BUILD_ROOT/%{_infodir}
+
+gzip -9nf ANNOUNCE ChangeLog FAQ README *.init *.pat *.sh
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -46,7 +50,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %preun
 if [ "$1" = "0" ]; then
-	rm %{_datadir}/guile/slibcat
+	rm -f %{_datadir}/guile/slibcat
 fi
 
 %postun
