@@ -1,7 +1,7 @@
 Summary: 	scheme library
 Name:		slib
-Version:	2c7
-Release:	2
+Version:	2c8
+Release:	1
 License:	GPL
 Group:		Development/Languages/scheme
 URL:		http://www-swiss.ai.mit.edu/~jaffer/SLIB.html
