@@ -21,10 +21,10 @@ conforms to Revised^5 Report on the Algorithmic Language Scheme and
 the IEEE P1178 specification.
 
 %description -l pl
-SLIB jest przeno¶n± bibliotek± scheme maj±c± zapewniæ kompatybilno¶æ
-i funkcje u¿ytkowe dla wszystkich implementacji scheme. SLIB jest
-zgodne ze specyfikacj± Revised^5 Report on the Algorithmic Language
-Scheme oraz IEEE P1178.
+SLIB jest przeno¶n± bibliotek± scheme maj±c± zapewniæ kompatybilno¶æ i
+funkcje u¿ytkowe dla wszystkich implementacji scheme. SLIB jest zgodne
+ze specyfikacj± Revised^5 Report on the Algorithmic Language Scheme
+oraz IEEE P1178.
 
 %prep
 %setup -q -n %{name}
