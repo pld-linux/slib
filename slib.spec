@@ -1,7 +1,7 @@
 Summary:	scheme library
 Name:		slib
 Version:	2c9
-Release:	2
+Release:	3
 License:	GPL
 Group:		Development/Languages/Scheme
 Group(de):	Entwicklung/Sprachen/Scheme
@@ -47,6 +47,7 @@ rm -rf $RPM_BUILD_ROOT
 %post
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 /usr/bin/guile -c "(use-modules (ice-9 slib)) (require 'new-catalog ) "
+chmod 644 %{_datadir}/guile/slibcat
 
 %preun
 if [ "$1" = "0" ]; then
