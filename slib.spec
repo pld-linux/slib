@@ -9,6 +9,7 @@ Source0:	ftp://ftp-swiss.ai.mit.edu/pub/scm/%{name}%{version}.tar.gz
 # Source0-md5:	dc1aa0ffb9e2414223ceefc315f6baf9
 Patch0:		%{name}-info.patch
 URL:		http://www-swiss.ai.mit.edu/~jaffer/SLIB.html
+BuildRequires:	texinfo
 Requires(post):	/usr/bin/guile
 Requires:	guile
 BuildArch:	noarch
