@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		Development/Languages/Scheme
 Source0:	ftp://ftp-swiss.ai.mit.edu/pub/scm/%{name}%{version}.tar.gz
+# Source0-md5:	e76f8d3b52ccd5c0f9c559310ecf6f68
 Patch0:		%{name}-info.patch
 URL:		http://www-swiss.ai.mit.edu/~jaffer/SLIB.html
 Requires(post):	/usr/bin/guile
