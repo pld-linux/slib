@@ -1,12 +1,12 @@
 Summary:	Scheme library
 Summary(pl):	Biblioteka Scheme
 Name:		slib
-Version:	2d5
+Version:	2d6
 Release:	1
 License:	GPL
 Group:		Development/Languages/Scheme
 Source0:	ftp://ftp-swiss.ai.mit.edu/pub/scm/%{name}%{version}.tar.gz
-# Source0-md5:	e76f8d3b52ccd5c0f9c559310ecf6f68
+# Source0-md5:	25afebd0735c523b6d43be55d4a521c4
 Patch0:		%{name}-info.patch
 URL:		http://www-swiss.ai.mit.edu/~jaffer/SLIB.html
 Requires(post):	/usr/bin/guile
@@ -33,9 +33,7 @@ oraz IEEE P1178.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_infodir},%{_datadir}/guile/slib}
-
 install *.scm $RPM_BUILD_ROOT%{_datadir}/guile/slib
-
 install slib.info $RPM_BUILD_ROOT%{_infodir}
 
 %clean
