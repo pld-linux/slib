@@ -1,12 +1,13 @@
 Summary: 	scheme library
 Name:		slib
 Version:	2c7
-Release:	0
+Release:	1
 License:	GPL
 Group:		Development/Languages/scheme
 URL:		http://www-swiss.ai.mit.edu/~jaffer/SLIB.html
 Source:		ftp://ftp-swiss.ai.mit.edu/pub/scm/%{name}%{version}.zip
 Requires:	guile
+Prereq:		/usr/bin/guile
 BuildRequires:	unzip
 BuildArchitectures:	noarch
 BuildRoot:	/tmp/%{name}-%{version}-root
@@ -18,7 +19,6 @@ Revised^5 Report on the Algorithmic Language Scheme and the IEEE P1178
 specification.    
 
 %prep
-#%setup -q -n %{name}
 rm -rf %{name}
 unzip -qq %{SOURCE0}
 cd %{name}
@@ -48,9 +48,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+SCHEME_LIBRARY_PATH=%{_datadir}/guile/slib/
+/usr/bin/guile -c "(use-modules (ice-9 slib)) (require 'new-catalog ) "
 
 %preun
 /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+if [ "$1" = "0" ]
+then
+  rm %{_datadir}/guile/slibcat
+fi
 
 %files
 %defattr(644,root,root,755)
