@@ -9,7 +9,7 @@ Source:		ftp://ftp-swiss.ai.mit.edu/pub/scm/%{name}%{version}.zip
 Requires:	guile
 Prereq:		/usr/bin/guile
 BuildRequires:	unzip
-BuildArchitectures:	noarch
+BuildArch:	noarch
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
@@ -27,14 +27,15 @@ cd %{name}
 cd %{name}
 
 %install
+rm -rf $RPM_BUILD_ROOT
 cd %{name}
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/{%{_infodir},%{_datadir}/guile/slib,etc/profile.d}
 cp -p *.scm $RPM_BUILD_ROOT/%{_datadir}/guile/slib
 cp -p slib.info* $RPM_BUILD_ROOT/%{_infodir}
 
-gzip -9nf $RPM_BUILD_ROOT/%{_infodir}/*.info*
-gzip -9nf ANNOUNCE ChangeLog FAQ README *.init *.pat *.sh 
+gzip -9nf $RPM_BUILD_ROOT/%{_infodir}/*.info* \
+	ANNOUNCE ChangeLog FAQ README *.init *.pat *.sh
 
 
 echo 'SCHEME_LIBRARY_PATH=%{_datadir}/guile/slib/
@@ -53,9 +54,8 @@ SCHEME_LIBRARY_PATH=%{_datadir}/guile/slib/
 
 %preun
 /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
-if [ "$1" = "0" ]
-then
-  rm %{_datadir}/guile/slibcat
+if [ "$1" = "0" ]; then
+	rm %{_datadir}/guile/slibcat
 fi
 
 %files
