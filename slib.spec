@@ -38,7 +38,6 @@ install *.scm $RPM_BUILD_ROOT/%{_datadir}/guile/slib
 
 install slib.info* $RPM_BUILD_ROOT/%{_infodir}
 
-gzip -9nf ANNOUNCE ChangeLog FAQ README *.init *.pat *.sh
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -58,6 +57,6 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc ANNOUNCE ChangeLog FAQ README *.init *.pat *.sh
 %{_infodir}/slib.info*
 %{_datadir}/guile/slib
