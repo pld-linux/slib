@@ -1,7 +1,7 @@
 Summary: 	scheme library
 Name:		slib
 Version:	2c7
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Languages/scheme
 URL:		http://www-swiss.ai.mit.edu/~jaffer/SLIB.html
@@ -28,8 +28,8 @@ cd %{name}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 cd %{name}
-rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/{%{_infodir},%{_datadir}/guile/slib,etc/profile.d}
 cp -p *.scm $RPM_BUILD_ROOT/%{_datadir}/guile/slib
 cp -p slib.info* $RPM_BUILD_ROOT/%{_infodir}
@@ -63,7 +63,7 @@ fi
 %defattr(644,root,root,755)
 %doc %{name}/ANNOUNCE.gz %{name}/ChangeLog.gz %{name}/FAQ.gz %{name}/README.gz
 %doc %{name}/*.init.gz %{name}/*.pat.gz %{name}/*.sh.gz 
-%attr(755, root, root) /etc/profile.d/slib.sh
-%attr(755, root, root) /etc/profile.d/slib.csh
-%{_infodir}/slib.info*.gz
+%attr(755,root,root) /etc/profile.d/slib.sh
+%attr(755,root,root) /etc/profile.d/slib.csh
+%{_infodir}/slib.info*
 %{_datadir}/guile/slib
