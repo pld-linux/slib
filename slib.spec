@@ -1,16 +1,15 @@
 Summary:	Scheme library
 Summary(pl):	Biblioteka Scheme
 Name:		slib
-Version:	2c9
-Release:	4
+Version:	2d5
+Release:	1
 License:	GPL
 Group:		Development/Languages/Scheme
-Source0:	ftp://ftp-swiss.ai.mit.edu/pub/scm/%{name}%{version}.zip
+Source0:	ftp://ftp-swiss.ai.mit.edu/pub/scm/%{name}%{version}.tar.gz
 Patch0:		%{name}-info.patch
 URL:		http://www-swiss.ai.mit.edu/~jaffer/SLIB.html
+Requires(post):	/usr/bin/guile
 Requires:	guile
-Prereq:		/usr/bin/guile
-BuildRequires:	unzip
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -32,12 +31,11 @@ oraz IEEE P1178.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/{%{_infodir},%{_datadir}/guile/slib}
+install -d $RPM_BUILD_ROOT{%{_infodir},%{_datadir}/guile/slib}
 
-install *.scm $RPM_BUILD_ROOT/%{_datadir}/guile/slib
+install *.scm $RPM_BUILD_ROOT%{_datadir}/guile/slib
 
-install slib.info* $RPM_BUILD_ROOT/%{_infodir}
-
+install slib.info $RPM_BUILD_ROOT%{_infodir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -57,6 +55,6 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc ANNOUNCE ChangeLog FAQ README *.init *.pat *.sh
-%{_infodir}/slib.info*
+%doc ANNOUNCE ChangeLog FAQ README *.init *.sh
 %{_datadir}/guile/slib
+%{_infodir}/slib.info*
