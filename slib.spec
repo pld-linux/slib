@@ -47,12 +47,12 @@ echo 'setenv SCHEME_LIBRARY_PATH %{_datadir}/guile/slib/' \
 rm -rf $RPM_BUILD_ROOT
 
 %post
-[ -x /usr/sbin/fix-info-dir ] && /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 SCHEME_LIBRARY_PATH=%{_datadir}/guile/slib/
 /usr/bin/guile -c "(use-modules (ice-9 slib)) (require 'new-catalog ) "
 
 %preun
-[ -x /usr/sbin/fix-info-dir ] && /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 if [ "$1" = "0" ]; then
 	rm %{_datadir}/guile/slibcat
 fi
