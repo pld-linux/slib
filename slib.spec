@@ -2,7 +2,7 @@ Summary:	Scheme library
 Summary(pl):	Biblioteka Scheme
 Name:		slib
 Version:	3a1
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Languages/Scheme
 Source0:	ftp://ftp-swiss.ai.mit.edu/pub/scm/%{name}%{version}.tar.gz
