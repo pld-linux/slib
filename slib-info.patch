@@ -1,0 +1,29 @@
+diff -Nru slib/slib.texi slib.new/slib.texi
+--- slib/slib.texi	Sun Oct  8 05:09:41 2000
++++ slib.new/slib.texi	Wed Oct 25 06:08:51 2000
+@@ -11,9 +11,9 @@
+ @syncodeindex tp cp
+ @c %**end of header
+ 
+-@dircategory The Algorithmic Language Scheme
++@dircategory Programming Languages:
+ @direntry
+-* SLIB: (slib).         Scheme Library
++* SLIB: (slib).				Scheme Library
+ @end direntry
+ 
+ @iftex
+diff -Nru slib/slib.info slib.new/slib.info
+--- slib/slib.info	Sun Oct  8 05:11:01 2000
++++ slib.new/slib.info	Wed Oct 25 06:13:58 2000
+@@ -1,8 +1,8 @@
+ This is slib.info, produced by makeinfo version 4.0 from slib.texi.           |
+ 
+-INFO-DIR-SECTION The Algorithmic Language Scheme
++INFO-DIR-SECTION Programming Languages:
+ START-INFO-DIR-ENTRY
+-* SLIB: (slib).         Scheme Library
++* SLIB: (slib).				Scheme Library
+ END-INFO-DIR-ENTRY
+ 
+   This file documents SLIB, the portable Scheme library.
