@@ -29,7 +29,7 @@ oraz IEEE P1178.
 
 %prep
 %setup -q -n %{name}
-%patch -p1
+%patch0 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
