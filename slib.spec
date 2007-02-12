@@ -1,5 +1,5 @@
 Summary:	Scheme library
-Summary(pl):	Biblioteka Scheme
+Summary(pl.UTF-8):   Biblioteka Scheme
 Name:		slib
 Version:	3a4
 Release:	1
@@ -22,10 +22,10 @@ utility functions for all standard scheme implementations. Slib
 conforms to Revised^5 Report on the Algorithmic Language Scheme and
 the IEEE P1178 specification.
 
-%description -l pl
-SLIB jest przeno¶n± bibliotek± scheme maj±c± zapewniæ kompatybilno¶æ i
-funkcje u¿ytkowe dla wszystkich implementacji scheme. SLIB jest zgodne
-ze specyfikacj± Revised^5 Report on the Algorithmic Language Scheme
+%description -l pl.UTF-8
+SLIB jest przenoÅ›nÄ… bibliotekÄ… scheme majÄ…cÄ… zapewniÄ‡ kompatybilnoÅ›Ä‡ i
+funkcje uÅ¼ytkowe dla wszystkich implementacji scheme. SLIB jest zgodne
+ze specyfikacjÄ… Revised^5 Report on the Algorithmic Language Scheme
 oraz IEEE P1178.
 
 %prep
