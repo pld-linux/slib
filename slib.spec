@@ -1,5 +1,5 @@
 Summary:	Scheme library
-Summary(pl.UTF-8):   Biblioteka Scheme
+Summary(pl.UTF-8):	Biblioteka Scheme
 Name:		slib
 Version:	3a4
 Release:	1
