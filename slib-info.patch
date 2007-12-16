@@ -1,12 +1,9 @@
 diff -Nru slib/slib.texi slib.new/slib.texi
 --- slib/slib.texi	Sun Oct  8 05:09:41 2000
 +++ slib.new/slib.texi	Wed Oct 25 06:08:51 2000
-@@ -11,9 +11,9 @@
- @syncodeindex tp cp
- @c %**end of header
+@@ -13,7 +13,7 @@
  
--@dircategory The Algorithmic Language Scheme
-+@dircategory Programming Languages:
+ @dircategory The Algorithmic Language Scheme
  @direntry
 -* SLIB: (slib).         Scheme Library
 +* SLIB: (slib).				Scheme Library
