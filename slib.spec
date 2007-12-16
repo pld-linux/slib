@@ -1,12 +1,12 @@
 Summary:	Scheme library
 Summary(pl.UTF-8):	Biblioteka Scheme
 Name:		slib
-Version:	3a4
+Version:	3a5
 Release:	1
-License:	GPL
+License:	distributable (BSD and Public Domain parts)
 Group:		Development/Languages/Scheme
 Source0:	ftp://ftp-swiss.ai.mit.edu/pub/scm/%{name}%{version}.tar.gz
-# Source0-md5:	87bc0b62370c0bf8a510a2acf6868eb9
+# Source0-md5:	eaa9be13722c5e16879bd33e0763246f
 Patch0:		%{name}-info.patch
 URL:		http://www-swiss.ai.mit.edu/~jaffer/SLIB.html
 BuildRequires:	texinfo
@@ -51,12 +51,11 @@ install slib.info $RPM_BUILD_ROOT%{_infodir}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-# note: using "(use-modules (ice-9 slib))" in -c here fails
 %post
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 umask 022
 rm -f %{_datadir}/guile/slibcat
-/usr/bin/guile -l %{_datadir}/guile/slib/guile.init -c "(require 'new-catalog)"
+/usr/bin/guile -l %{_datadir}/guile/slib/guile.init -c "(use-modules (ice-9 slib)) (require 'new-catalog)"
 
 %preun
 if [ "$1" = "0" ]; then
@@ -68,7 +67,7 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc ANNOUNCE ChangeLog FAQ README *.init
+%doc ANNOUNCE COPYING ChangeLog FAQ README *.init
 %attr(755,root,root) %{_bindir}/slib
 %{_datadir}/guile/slib
 %{_mandir}/man1/slib.1*
