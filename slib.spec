@@ -1,18 +1,17 @@
 Summary:	Scheme library
 Summary(pl.UTF-8):	Biblioteka Scheme
 Name:		slib
-Version:	3a5
-Release:	1
+Version:	3b3
+Release:	0.1
 License:	distributable (BSD and Public Domain parts)
 Group:		Development/Languages/Scheme
-Source0:	ftp://ftp-swiss.ai.mit.edu/pub/scm/%{name}%{version}.tar.gz
-# Source0-md5:	eaa9be13722c5e16879bd33e0763246f
+Source0:	http://groups.csail.mit.edu/mac/ftpdir/scm/%{name}-%{version}.tar.gz
+# Source0-md5:	11626eef380de4f56d3082514559beb6
 Patch0:		%{name}-info.patch
-URL:		http://www-swiss.ai.mit.edu/~jaffer/SLIB.html
+URL:		http://people.csail.mit.edu/jaffer/SLIB.html
 BuildRequires:	texinfo
 Requires(post):	/usr/bin/guile
-Requires:	guile >= 5:1.8
-Requires:	guile < 5:1.9
+Requires:	guile >= 5:2.0
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -29,7 +28,7 @@ ze specyfikacją Revised^5 Report on the Algorithmic Language Scheme
 oraz IEEE P1178.
 
 %prep
-%setup -q -n %{name}
+%setup -q
 %patch0 -p1
 
 %build
@@ -59,10 +58,10 @@ rm -f %{_datadir}/guile/slibcat
 
 %preun
 if [ "$1" = "0" ]; then
-	rm -f %{_datadir}/guile/1.8/slibcat
+	rm -f %{_datadir}/guile/site/slibcat
 fi
 
-%postun	-p	/sbin/postshell
+%postun	-p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
 %files
