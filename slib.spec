@@ -3,7 +3,7 @@ Summary:	Scheme library
 Summary(pl.UTF-8):	Biblioteka Scheme
 Name:		slib
 Version:	3b5
-Release:	1
+Release:	2
 License:	distributable (BSD and Public Domain parts)
 Group:		Development/Languages/Scheme
 Source0:	http://groups.csail.mit.edu/mac/ftpdir/scm/%{name}-%{version}.tar.gz
@@ -120,6 +120,11 @@ umask 022
 /usr/bin/guile -l %{_datadir}/slib/guile.init -c "(use-modules (ice-9 slib)) (require 'new-catalog)" >/dev/null 2>&1
 
 %post -n scm-slib
+umask 022
+scm -c "(require 'new-catalog)" >/dev/null 2>&1
+
+%triggerin -n scm-slib -- scm
+# force regeneration after scm upgrade
 umask 022
 scm -c "(require 'new-catalog)" >/dev/null 2>&1
 
