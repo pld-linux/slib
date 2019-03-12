@@ -3,7 +3,7 @@ Summary:	Scheme library
 Summary(pl.UTF-8):	Biblioteka Scheme
 Name:		slib
 Version:	3b5
-Release:	3
+Release:	4
 License:	distributable (BSD and Public Domain parts)
 Group:		Development/Languages/Scheme
 Source0:	http://groups.csail.mit.edu/mac/ftpdir/scm/%{name}-%{version}.tar.gz
