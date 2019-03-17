@@ -3,7 +3,7 @@ Summary:	Scheme library
 Summary(pl.UTF-8):	Biblioteka Scheme
 Name:		slib
 Version:	3b5
-Release:	4
+Release:	5
 License:	distributable (BSD and Public Domain parts)
 Group:		Development/Languages/Scheme
 Source0:	http://groups.csail.mit.edu/mac/ftpdir/scm/%{name}-%{version}.tar.gz
@@ -32,7 +32,7 @@ Summary(pl.UTF-8):	Biblioteka Scheme dla Guile
 Group:		Development/Languages/Scheme
 Requires(post):	/usr/bin/guile
 Requires:	%{name} = %{version}-%{release}
-Requires:	guile >= 5:2.0
+Requires:	guile >= 5:2.2
 
 %description -n guile-slib
 SLIB is a portable scheme library meant to provide compatibility and
@@ -101,8 +101,8 @@ install slib.1 $RPM_BUILD_ROOT%{_mandir}/man1
 install slib.info $RPM_BUILD_ROOT%{_infodir}
 
 # guile
-install -d $RPM_BUILD_ROOT%{_datadir}/guile/site/2.0
-:> $RPM_BUILD_ROOT%{_datadir}/guile/site/2.0/slibcat
+install -d $RPM_BUILD_ROOT%{_datadir}/guile/site/2.2
+:> $RPM_BUILD_ROOT%{_datadir}/guile/site/2.2/slibcat
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -141,7 +141,7 @@ scm -c "(require 'new-catalog)" >/dev/null 2>&1
 %defattr(644,root,root,755)
 %{_datadir}/slib/guile.init
 %{_datadir}/slib/guile-2.init
-%ghost %{_datadir}/guile/site/2.0/slibcat
+%ghost %{_datadir}/guile/site/2.2/slibcat
 
 %files -n scm-slib
 %defattr(644,root,root,755)
