@@ -10,6 +10,7 @@ Source0:	http://groups.csail.mit.edu/mac/ftpdir/scm/%{name}-%{version}.tar.gz
 # Source0-md5:	c895d74d769c5072c4c6d1b1700db83f
 Patch0:		%{name}-info.patch
 URL:		http://people.csail.mit.edu/jaffer/SLIB.html
+BuildRequires:	scm
 BuildRequires:	texinfo
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
