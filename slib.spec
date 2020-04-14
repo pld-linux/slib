@@ -3,7 +3,7 @@ Summary:	Scheme library
 Summary(pl.UTF-8):	Biblioteka Scheme
 Name:		slib
 Version:	3b6
-Release:	1
+Release:	2
 License:	distributable (BSD and Public Domain parts)
 Group:		Development/Languages/Scheme
 Source0:	http://groups.csail.mit.edu/mac/ftpdir/scm/%{name}-%{version}.tar.gz
@@ -80,6 +80,8 @@ Ten pakiet integruje SLIB z implementacją SCM.
 
 %build
 %{__make}
+
+%{__make} slib.info
 
 %install
 rm -rf $RPM_BUILD_ROOT
