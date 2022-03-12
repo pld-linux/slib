@@ -3,7 +3,7 @@ Summary:	Scheme library
 Summary(pl.UTF-8):	Biblioteka Scheme
 Name:		slib
 Version:	3b6
-Release:	3
+Release:	4
 License:	distributable (BSD and Public Domain parts)
 Group:		Development/Languages/Scheme
 Source0:	http://groups.csail.mit.edu/mac/ftpdir/scm/%{name}-%{version}.tar.gz
@@ -104,8 +104,8 @@ install slib.1 $RPM_BUILD_ROOT%{_mandir}/man1
 install slib.info $RPM_BUILD_ROOT%{_infodir}
 
 # guile
-install -d $RPM_BUILD_ROOT%{_datadir}/guile/site/2.2
-:> $RPM_BUILD_ROOT%{_datadir}/guile/site/2.2/slibcat
+install -d $RPM_BUILD_ROOT%{_datadir}/guile/site/3.0
+:> $RPM_BUILD_ROOT%{_datadir}/guile/site/3.0/slibcat
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -144,7 +144,7 @@ scm -c "(require 'new-catalog)" >/dev/null 2>&1
 %defattr(644,root,root,755)
 %{_datadir}/slib/guile.init
 %{_datadir}/slib/guile-2.init
-%ghost %{_datadir}/guile/site/2.2/slibcat
+%ghost %{_datadir}/guile/site/3.0/slibcat
 
 %files -n scm-slib
 %defattr(644,root,root,755)
