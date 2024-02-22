@@ -2,12 +2,12 @@
 Summary:	Scheme library
 Summary(pl.UTF-8):	Biblioteka Scheme
 Name:		slib
-Version:	3b6
-Release:	4
+Version:	3c1
+Release:	1
 License:	distributable (BSD and Public Domain parts)
 Group:		Development/Languages/Scheme
 Source0:	http://groups.csail.mit.edu/mac/ftpdir/scm/%{name}-%{version}.tar.gz
-# Source0-md5:	c895d74d769c5072c4c6d1b1700db83f
+# Source0-md5:	dec6dddb3a966e5be609848c8d08b57b
 Patch0:		%{name}-info.patch
 URL:		http://people.csail.mit.edu/jaffer/SLIB.html
 BuildRequires:	scm
