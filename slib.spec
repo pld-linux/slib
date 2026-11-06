@@ -6,10 +6,10 @@ Version:	3c3
 Release:	1
 License:	distributable (BSD and Public Domain parts)
 Group:		Development/Languages/Scheme
-Source0:	http://groups.csail.mit.edu/mac/ftpdir/scm/%{name}-%{version}.tar.gz
+Source0:	https://groups.csail.mit.edu/mac/ftpdir/scm/%{name}-%{version}.tar.gz
 # Source0-md5:	6b9ecb2a8e09261b6a4143c852951119
 Patch0:		%{name}-info.patch
-URL:		http://people.csail.mit.edu/jaffer/SLIB.html
+URL:		https://people.csail.mit.edu/jaffer/SLIB.html
 BuildRequires:	scm
 BuildRequires:	texinfo
 BuildArch:	noarch
