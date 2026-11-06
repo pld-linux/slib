@@ -89,7 +89,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_infodir},%{_datadir}/slib,%{_bindir},%{_mandir}/man1}
 
 cp -p *.scm $RPM_BUILD_ROOT%{_datadir}/slib
-cp -p guile.init guile-2.init $RPM_BUILD_ROOT%{_datadir}/slib
+cp -p guile.init guile-2.init guile-3.init $RPM_BUILD_ROOT%{_datadir}/slib
 cp -p scm.init $RPM_BUILD_ROOT%{_datadir}/slib
 # TODO (and possibly other, not present yet in PLD)
 #cp -p scheme48.init umbscheme.init $RPM_BUILD_ROOT%{_datadir}/slib
@@ -144,6 +144,7 @@ scm -c "(require 'new-catalog)" >/dev/null 2>&1
 %defattr(644,root,root,755)
 %{_datadir}/slib/guile.init
 %{_datadir}/slib/guile-2.init
+%{_datadir}/slib/guile-3.init
 %ghost %{_datadir}/guile/site/3.0/slibcat
 
 %files -n scm-slib
